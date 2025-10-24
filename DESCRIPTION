@@ -1,6 +1,6 @@
 Package: AndyWebsite
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Interactive Data Exploration and Analysis Dashboard
 Version: 0.1.0
 Authors@R: c(
     person(
@@ -9,13 +9,23 @@ Authors@R: c(
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
+Description: 
+    This package provides an integrated environment for data analysis and interactive exploration.
+    It includes the cleaned dataset used in previous analyses, a collection of helper functions 
+    for summarising and visualising results, and a Shiny web application that allows users to 
+    interactively explore patterns in the data. The package also features full documentation 
+    generated with roxygen2 and a pkgdown website for reproducibility and transparency.
+
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+    shiny,
+    ggplot2,
+    dplyr
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    pkgdown
 VignetteBuilder: knitr
 RoxygenNote: 7.3.2
