@@ -15,17 +15,21 @@ Description:
     for summarising and visualising results, and a Shiny web application that allows users to 
     interactively explore patterns in the data. The package also features full documentation 
     generated with roxygen2 and a pkgdown website for reproducibility and transparency.
-
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
     shiny,
+    plotly,
+    bslib,
     ggplot2,
-    dplyr
+    dplyr,
+    BHAI
 Suggests: 
     knitr,
     rmarkdown,
     pkgdown
 VignetteBuilder: knitr
 RoxygenNote: 7.3.2
+Depends: 
+    R (>= 3.5)

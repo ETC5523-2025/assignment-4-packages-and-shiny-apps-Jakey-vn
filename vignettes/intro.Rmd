@@ -1,5 +1,5 @@
 ---
-title: "intro"
+title: "Getting started with AndyWebsite"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{intro}
@@ -17,3 +17,57 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(AndyWebsite)
 ```
+
+## How to launch the dashboard
+
+You can launch the Shiny app by running the following command in your R console:
+
+```{r launch app, eval=FALSE}
+launch_app()
+```
+
+This opens the HAI Dashboard – German PPS 2011 with:
+
+Cases (interactive): total cases by infection type, with rate per 1,000 patients on hover.
+
+Length of Infection: distribution (days) for a chosen infection type.
+
+About & How to Read: glossary + interpretation notes.
+
+## Data used in the app
+
+The app uses objects provided by BHAI:
+
+num_survey_patients: total number of patients surveyed in the PPS.
+
+population: national population (2011).
+
+length_of_stay: mean hospital length of stay (days).
+
+num_hai_patients: named vector of case counts by infection type (HAP, SSI, BSI, UTI, CDI).
+
+loi_pps: list of vectors with length of infection (days) per type.
+
+Note: These are prevalence-oriented summaries from a point-prevalence survey (PPS), not incident cases over time.
+
+## How to read the app’s outputs
+
+### Field glossary
+
+Infection - HAI type: HAP (Hospital-Acquired Pneumonia), SSI (Surgical Site Infection), BSI (Bloodstream Infection), UTI (Urinary Tract Infection), CDI (Clostridioides difficile Infection).
+
+Cases: The number of surveyed patients identified with that infection type (num_hai_patients).
+
+Rate per 1,000 patients: Standardized rate 1000 \* cases / num_survey_patients, enabling fair comparisons.
+
+Days: Infection duration (in days) for a patient. Values come from loi_pps[[type]] (statistical draws used for burden estimation).
+
+Count: number of infections that lasted exactly that number of days.
+
+### Interpretation
+
+Cases (interactive) Taller bars = more prevalent infection types in the PPS sample. The hover tooltip shows the rate per 1,000 patients to standardise across groups.
+
+Length of Infection The histogram shows how long infections lasted. Peaks at low days ⇒ many infections resolved quickly; a long right tail which means a subset had prolonged duration.
+
+Read prevalence (how common) together with duration (how long) to reason about potential burden.
